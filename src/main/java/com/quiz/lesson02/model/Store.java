@@ -5,9 +5,9 @@ import java.util.Date;
 public class Store {
 	private int id;
 	private String name;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String address;
-	private int businessNumber;
+	private String businessNumber;
 	private String introduce;
 	private Date createdAt;
 	private Date updatedAt;
@@ -25,10 +25,10 @@ public class Store {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getAddress() {
@@ -37,10 +37,10 @@ public class Store {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getBusinessNumber() {
+	public String getBusinessNumber() {
 		return businessNumber;
 	}
-	public void setBusinessNumber(int businessNumber) {
+	public void setBusinessNumber(String businessNumber) {
 		this.businessNumber = businessNumber;
 	}
 	public String getIntroduce() {

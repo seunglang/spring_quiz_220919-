@@ -6,16 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.quiz.lesson02.bo.StoreBO;
 import com.quiz.lesson02.model.Store;
 
 @RestController
 public class Lesson02Quiz01RestController {
 	
 	@Autowired // 스프링빈을 DI(주입) 받음
-	private StoreBo storeBO;
+	private StoreBO storeBO;
 	
 	@RequestMapping("/lesson02/quiz01")
 	public List<Store> quiz01() {
-		List<Store> storeList = 
+		List<Store> storeList = storeBO.getStoreList();
+		return storeList; // json
 	}
 }
