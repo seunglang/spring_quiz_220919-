@@ -15,7 +15,7 @@ public class StoreBO {
 	private StoreDAO storeDAO; // private 다음 StoreDAO는 자료형이다.
 	
 	// input:X (컨트롤러가 아무것도 주지않음)
-	// output:List<UsedGoods>
+	// output:List<UsedGoods> => 컨트롤러한테 보냄
 	public List<Store> getStoreList() {
 		return storeDAO.selectStoreList();
 	}

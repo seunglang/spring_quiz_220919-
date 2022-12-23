@@ -10,3 +10,4 @@
  			`store`
  	</select>
  </mapper>
+ <!-- mappers 패키지는 테이블 단위로 생성을 해야 함 -->

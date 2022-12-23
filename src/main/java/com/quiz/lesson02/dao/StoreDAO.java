@@ -10,6 +10,6 @@ import com.quiz.lesson02.model.Store;
 public interface StoreDAO {
 	
 	// input:X (service가(BO) 아무것도 주지않음)
-	// output:List<UsedGoods>
+	// output:List<Store> => BO에게 전달
 	public List<Store> selectStoreList();
 }
