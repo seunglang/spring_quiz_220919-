@@ -56,13 +56,63 @@
 		WHERE
 			
 			 <![CDATA[
-        		area > 90 AND price <= 130000
+			 	`type` = "매매" AND
+        		`area` > 90 AND `price` <= 130000
         	]]>
         	
-        	캡쳐용
-        	area &gt; #{area} AND price &lt; #{price}
 		ORDER BY
 		
-		`updatedAt` desc
+		`id` desc
+		<!-- 등록일 기준으로 정렬을 할땐 id로 하면 편하다. -->
  	</select>
+ 	
+ 	<insert id="insertRealEstate" parameterType="com.quiz.lesson03.model.RealEstate">
+ 		INSERT INTO `real_estate`
+ 		(
+ 			`realtorId`
+			,`address`
+			,`area`
+			,`type`
+			,`price`
+			,`rentPrice`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+		VALUES
+		(
+			#{realtorId}
+			, #{address}
+			, #{area}
+			, #{type}
+			, #{price}
+			, #{rentPrice}
+			, NOW()
+			, NOW()
+		)
+ 	</insert>
+ 	
+ 	<insert id="insertRealEstateAsField" parameterType="com.quiz.lesson03.model.RealEstate">
+ 		INSERT INTO `real_estate`
+ 		(
+ 			`realtorId`
+			,`address`
+			,`area`
+			,`type`
+			,`price`
+			,`rentPrice`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+		VALUES
+		(
+			#{realtorId}
+			, #{address}
+			, #{area}
+			, #{type}
+			, #{price}
+			, #{rentPrice}
+			, NOW()
+			, NOW()
+		)
+ 	</insert>
  </mapper>
