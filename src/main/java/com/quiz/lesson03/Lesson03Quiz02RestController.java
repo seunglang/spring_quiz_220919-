@@ -29,10 +29,10 @@ public class Lesson03Quiz02RestController {
 		return "입력 성공 : " + row;
 	}
 	
-	// http://localhost:8080/lesson03/quiz02/2
+	// http://localhost:8080/lesson03/quiz02/2?realtor_id=5
 	@RequestMapping("/2")
 	public String quiz02_2(
-			@RequestParam("realtorId") int realtorId
+			@RequestParam("realtor_id") int realtorId
 			) {
 //		address : 썅떼빌리버 오피스텔 814호
 //		area : 45
