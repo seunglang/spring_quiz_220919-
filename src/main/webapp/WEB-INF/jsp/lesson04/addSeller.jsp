@@ -13,8 +13,20 @@
 <body>
 	<div class="container">
 		<h1>판매자 추가</h1>
-		<form method="post" action="/lesson04/quiz01">
-			
+		<form method="post" action="/lesson04/quiz01/add_seller">
+			<div class="form-group">
+				<label for="nickname">닉네임</label>
+				<input type="text" id="nickname" name="nickname" class="form-control col-2" placeholder="닉네임을 입력하세요">
+			</div>
+			<div class="form-group">
+				<label for="profileImageUrl">프로필 사진</label>
+				<input type="text" id="profileImageUrl" name="profileImageUrl" class="form-control col-6" placeholder="ex)http://">
+			</div>
+			<div class="form-group">
+				<label for="temperature">온도</label>
+				<input type="text" id="temperature" name="temperature" class="form-control col-2" placeholder="온도를 입력하세요">
+			</div>
+			<input type="submit" class="btn btn-warning" value="추가">
 		</form>
 	</div>
 </body>
