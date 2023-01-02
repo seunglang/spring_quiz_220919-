@@ -176,4 +176,5 @@ public class Lesson05QuizController {
 		model.addAttribute("members", members);
 		return "lesson05/quiz04";
 	}
+	
 }

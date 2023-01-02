@@ -1,5 +1,5 @@
 @charset "UTF-8";
-#wrap {width:1200px; height:1200px; margin:auto; background-color:#999;}
-.contents {height:850px;}
+#wrap {width:1200px; margin:auto;}
+.contents {height:400px;}
 .text-size {color:#fff; font-size:18px; font-weight:bold;}
 footer {height:150px;}
