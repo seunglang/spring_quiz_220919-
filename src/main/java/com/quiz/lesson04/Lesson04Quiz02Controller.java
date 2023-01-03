@@ -30,8 +30,8 @@ public class Lesson04Quiz02Controller {
 	@PostMapping("add_realtor")
 	public String addRealtor(
 			@ModelAttribute Realtor realtor, // jsp 태그에있던 name(form태그 속성)과 필드명이 일치하는 것이 담긴다.
-			Model model) {
 		
+			Model model) {
 		// db insert // 객체를 통째로 받아오기
 		realtorBO.addRealtor(realtor);
 		

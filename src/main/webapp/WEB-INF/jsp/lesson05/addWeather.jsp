@@ -28,61 +28,76 @@
 <body>
 	<div id="wrap">
 		<section class="contents d-flex pt-3">
-			<article class="col-2 bg-primary pl-0 pr-0">
+			<article class="col-2 bg-color pl-0 pr-0">
 				<jsp:include page="menu.jsp" />
 			</article>
-			<article class="col-10 bg-danger">
+			<article class="col-10">
 				<h2 class="p-3">날씨 입력</h2>
-				<form method="post" action="">
-					<div class="d-flex justify-content-between">
-						<label for="date">날짜</label> 
-							<input type="text" id="date" name="date" class="ml-3 form-control col-3"> 
-								<label for="weather">날씨</label>
-						    <select name="weather" id="weather" class="form-control col-2">
+				<form method="get" action="/lesson05/quiz05/add_weather">
+					<div class="d-flex justify-content-between mt-5">
+						<div class="d-flex align-items-center">
+							<div class="input-label">날짜</div>
+							<input type="text" class="form-control" id="date" name="date">
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="input-label">날씨</div>
+							<select class="form-control" name="weather">
 								<option>맑음</option>
-								<option>비</option>
-								<option>흐림</option>
 								<option>구름조금</option>
-							</select> 
-							<label for="dust">미세먼지</label> 
-							<select name="dust" id="dust" class="form-control col-2">
+								<option>흐림</option>
+								<option>비</option>
+							</select>
+						</div>
+
+						<div class="d-flex align-items-center">
+							<div class="input-label">미세먼지</div>
+							<select class="form-control" name="microDust">
 								<option>좋음</option>
-								<option>최악</option>
 								<option>보통</option>
 								<option>나쁨</option>
+								<option>최악</option>
 							</select>
-					</div>
-					<div class="d-flex align-items-center justify-content-between mt-5">
-						<div class="input-group col-3">
-							<label for="temperature">기온</label>
-							<input type="text" class="form-control" name="temperature" id="temperature">
-							<div class="input-group-append">
-								<span class="input-group-text">°C</span>
-							</div>
-						</div>
-					
-						<div class="input-group col-3">
-							<label for="precipitation">강수량</label>
-							<input type="text" class="form-control" name="precipitation" id="precipitation">
-							<div class="input-group-append">
-								<span class="input-group-text">mm</span>
-							</div>
-						</div>
-						<div class="input-group col-3">
-							<label for="windSpeed">풍속</label>
-							<input type="text" class="form-control" name="windSpeed" id="windSpeed">
-							<div class="input-group-append">
-								<span class="input-group-text">km/h</span>
-							</div>
 						</div>
 					</div>
-					<div class="d-flex justify-content-end mt-3">
+
+					<div class="d-flex justify-content-between mt-5">
+						<div class="d-flex align-items-center">
+							<div class="input-label">기온</div>
+							<div class="input-group">
+								<input type="text" class="form-control" name="temperatures">
+								<div class="input-group-append">
+									<span class="input-group-text">℃</span>
+								</div>
+							</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="input-label">강수량</div>
+							<div class="input-group">
+								<input type="text" class="form-control" name="precipitation">
+								<div class="input-group-append">
+									<span class="input-group-text">mm</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="d-flex align-items-center">
+							<div class="input-label">풍속</div>
+							<div class="input-group">
+								<input type="text" class="form-control" name="windSpeed">
+								<div class="input-group-append">
+									<span class="input-group-text">km/h</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="text-right mt-4 mb-5">
 						<input type="submit" class="btn btn-success" value="저장">
 					</div>
 				</form>
 			</article>
 		</section>
-		<footer class="bg-warning">
+		<footer>
 			<jsp:include page="footer.jsp" />
 		</footer>
 	</div>

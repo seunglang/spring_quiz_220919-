@@ -10,10 +10,9 @@ public class WeatherHistory {
 	private double precipitation;
 	private String microDust;
 	private double windSpeed;
-	private int createdAt;
-	private int updatedAt;
+	private Date createdAt;
+	private Date updatedAt;
 	
-	// getters and setters
 	public int getId() {
 		return id;
 	}
@@ -56,17 +55,16 @@ public class WeatherHistory {
 	public void setWindSpeed(double windSpeed) {
 		this.windSpeed = windSpeed;
 	}
-	public int getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(int createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	public int getUpdatedAt() {
+	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-	public void setUpdatedAt(int updatedAt) {
+	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
 }
