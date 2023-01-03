@@ -4,7 +4,7 @@
  
  <mapper namespace="com.quiz.lesson05.dao.WeatherDAO">
  	<insert id="insertWeather" parameterType="com.quiz.lesson05.model.WeatherHistory">
- 		INSERT INTO `weather_history`
+ 		INSERT INTO `weatherhistory`
  		(
  			`date`
 			,`weather`
@@ -40,6 +40,6 @@
 			,`createdAt`
 			,`updatedAt`
 		FROM
-			`weather_history`
+			`weatherhistory`
  	</select>
  </mapper>

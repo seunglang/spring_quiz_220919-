@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.quiz.lesson05.bo.WeatherBO;
@@ -39,13 +38,18 @@ public class Lesson05Quiz05Controller {
 		
 		// date가 왜 null로 들어오는지 생각. map주소엔 넣은 값이 제대로 나옴.
 		// db insert // 객체 통으로 받아오기
-		weatherBO.addWeather(weatherHistory);
-		
-		// model
+		if (weatherHistory.getDate() != null) {
+			weatherBO.addWeather(weatherHistory);
+		}
 		List<WeatherHistory> WeatherHistoryList = weatherBO.getWeatherHistoryList();
-		WeatherHistoryList.add(weatherHistory);
 		
 		model.addAttribute("WeatherHistory", WeatherHistoryList);
+		
+		// model
+		//List<WeatherHistory> WeatherHistoryList = weatherBO.getWeatherHistoryList();
+		//WeatherHistoryList.add(weatherHistory);
+		
+		//model.addAttribute("WeatherHistory", WeatherHistoryList);
 		
 		
 		// view 응답값
