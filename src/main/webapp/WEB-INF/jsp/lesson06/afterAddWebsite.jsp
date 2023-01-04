@@ -16,7 +16,7 @@
 <body>	
 	<div class="container">
 		<h1>즐겨 찾기 목록</h1>
-		<table>
+		<table class="table text-center">
 			<thead>
 				<tr>
 					<th>No.</th>
@@ -25,7 +25,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="websiteList" var="item" varStatus="status">
+			<c:forEach items="${list}" var="item" varStatus="status">
 				<tr>
 					<td>${status.count}</td>
 					<td>${item.name}</td>
@@ -33,7 +33,7 @@
 				</tr>
 			</c:forEach>
 			</tbody>
-		</table>			
+		</table>
 	</div>
 	
 </body>

@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<h1>즐겨찾기 추가하기</h1>
-		<label for="title">제목</label>
+		<label for="name">제목</label>
 		<input type="text" id="name" class="form-control" name="name">
 		<label for="url">주소</label>
 		<input type="text" id="url" class="form-control" name="url">
