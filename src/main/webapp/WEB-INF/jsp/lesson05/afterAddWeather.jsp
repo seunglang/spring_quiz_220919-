@@ -73,5 +73,14 @@
 			<jsp:include page="footer.jsp" />
 		</footer>
 	</div>
+	
+	<!-- <script> 데이트 피커로 사용하는 방법 - 제이쿼리 슬림버전 빼주고 datepicker 구문 추가해주자
+					파라미터를 추가주소칸에 다 받아줘야 함
+		$(document).ready(function({
+			$('input[name=date]').datepicker({
+				dateFormat: "yy-mm-dd"
+			});
+		});
+	</script> -->
 </body>
 </html>
