@@ -14,4 +14,6 @@ public interface WebsiteDAO {
 			@Param("url") String url);
 	
 	public List<Website> selectWebsiteList();
+	
+	public boolean existWebsiteByUrl(String url);
 }

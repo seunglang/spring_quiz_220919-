@@ -30,11 +30,18 @@
 					<td>${status.count}</td>
 					<td>${item.name}</td>
 					<td>${item.url}</td>
+					<td><button type="button" class="btn btn-danger delete">삭제</button></td>
 				</tr>
 			</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			
+		});
+	</script>
 	
 </body>
 </html>

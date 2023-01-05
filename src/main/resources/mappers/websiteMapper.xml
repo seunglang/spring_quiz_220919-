@@ -30,4 +30,13 @@
  		FROM
  			`website`
  	</select>
+ 	
+ 	<select id="existWebsiteByUrl" parameterType="String" resultType="boolean">
+ 		SELECT
+ 			count(*)
+ 		FROM
+ 			`website`
+ 		WHERE
+ 			`url` = #{url}
+ 	</select>
  </mapper>

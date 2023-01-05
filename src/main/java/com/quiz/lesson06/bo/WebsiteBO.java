@@ -21,4 +21,8 @@ public class WebsiteBO {
 	public List<Website> getWebsiteList() {
 		return websiteDAO.selectWebsiteList();
 	}
+	
+	public boolean existWebsiteByUrl(String url) {
+		return websiteDAO.existWebsiteByUrl(url);
+	}
 }
