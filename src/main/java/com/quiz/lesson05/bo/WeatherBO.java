@@ -21,4 +21,5 @@ public class WeatherBO {
 	public List<WeatherHistory> getWeatherHistoryList() {
 		return weatherDAO.selectWeatherHistoryList();
 	}
+	
 }

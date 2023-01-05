@@ -39,4 +39,14 @@
  		WHERE
  			`url` = #{url}
  	</select>
+ 	
+ 	<delete id="deleteWebsiteById" parameterType="String">
+ 		DELETE
+ 		FROM
+ 			`website`
+ 		WHERE
+ 			`name' = #{name}
+ 			<!--  AND
+ 			`url` = #{url}-->
+ 	</delete>
  </mapper>

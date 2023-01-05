@@ -16,4 +16,9 @@ public interface WebsiteDAO {
 	public List<Website> selectWebsiteList();
 	
 	public boolean existWebsiteByUrl(String url);
+	
+	// 행 삭제
+	public String deleteWebsiteById(
+			@Param("name") String name,
+			@Param("url") String url);
 }

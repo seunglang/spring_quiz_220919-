@@ -81,5 +81,19 @@ public class Lesson06Controller {
 		return checkExist;
 
 	}
+	
+	// 행 삭제 api
+	@ResponseBody
+	@GetMapping("/quiz03/delete")
+	public String deleteWebsiteById(
+			@RequestParam("name") String name
+			//@RequestParam("url") String url
+			) {
+		System.out.println(name);
+		//websiteBO.deleteWebsiteById(name, url);
+		System.out.println("테스트");
+		return "삭제 완료";
+	}
+	
 
 }

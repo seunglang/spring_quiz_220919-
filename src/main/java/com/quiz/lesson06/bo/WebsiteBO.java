@@ -25,4 +25,9 @@ public class WebsiteBO {
 	public boolean existWebsiteByUrl(String url) {
 		return websiteDAO.existWebsiteByUrl(url);
 	}
+	
+	// 삭제 구문
+	public String deleteWebsiteById(String name, String url) {
+		return websiteDAO.deleteWebsiteById(name, url);
+	}
 }
