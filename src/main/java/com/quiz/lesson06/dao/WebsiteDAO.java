@@ -9,16 +9,20 @@ import com.quiz.lesson06.model.Website;
 
 @Repository
 public interface WebsiteDAO {
+	// db 데이터 저장 구문
 	public void insertWebsite(
 			@Param("name") String name,
 			@Param("url") String url);
 	
+	// db 데이터 호출 구문
 	public List<Website> selectWebsiteList();
 	
+	// url 중복 확인 구문
 	public boolean existWebsiteByUrl(String url);
 	
+	// 다른 예제 - 중복 확인 구문
+	//public Website selectWebsiteByUrl(String url);
+	
 	// 행 삭제
-	public String deleteWebsiteById(
-			@Param("name") String name,
-			@Param("url") String url);
+	public int deleteWebsiteById(int id);
 }

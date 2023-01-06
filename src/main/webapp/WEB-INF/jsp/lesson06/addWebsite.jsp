@@ -22,6 +22,10 @@
 			<button type="button" id="checkExistUrlBtn" class="btn btn-primary ml-3">중복확인</button>
 		</div>
 		<small id="nameStatusArea"></small>
+		<!-- <small id="duplicationText" class="text-danger d-none">중복된 url입니다.</small> -->
+		<!-- <small id="avaliableText" class="text-success d-none">저장 가능한 url입니다.</small>
+		숨겨놨다가 중복확인 후에 제이쿼리를 이용해서 처리
+		 -->
 		<input type="button" id="join" value="추가" class="btn btn-success form-control mt-3">
 	</div>
 	
@@ -33,9 +37,17 @@
 				$('#nameStatusArea').empty();
 				//alert('sdf');
 				
+				if(url == '') {
+					alert("주소를 입력하세요");
+				}
+				if (url.startsWith('http') == false && url.startsWith('https') == false) {
+					alert("주소 형식을 제대로 입력해주세요");
+					return;
+				}
+				
 				$.ajax({
 					//request
-					type:"get"
+					type:"post"
 					, url:"/lesson06/quiz02/is_duplication"
 					, data: {"url":url}
 					
@@ -47,6 +59,18 @@
 						} else {
 							$('#nameStatusArea').append('<span class="text-danger">저장 가능한 url입니다.</span>');
 						}
+						
+						<%-- 다른 예제의 예시 --%>
+						<%--if (data.is_duplication) {
+							// 중복
+							$('#avaliableText').addClass("d-none");
+							$('#duplicationText').removeClass("d-none");
+						} else{
+							// 사용가능한 url
+							$('#duplicationText').addClass("d-none");
+							$('#avaliableText').removeClass("d-none");
+						}--%>
+						
 					}
 					, error:function(e){
 						alert("실패" + e);

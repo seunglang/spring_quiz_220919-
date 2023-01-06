@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,7 +73,7 @@ public class Lesson06Controller {
 	// url 중복확인 - AJAX 통신 요청
 	// http://localhost:8080/lesson06/quiz02/is_duplication
 	@ResponseBody
-	@GetMapping("/quiz02/is_duplication")
+	@PostMapping("/quiz02/is_duplication")
 	public Map<String, Boolean> isDuplication(
 			@RequestParam("url") String url) {
 		
@@ -82,18 +83,54 @@ public class Lesson06Controller {
 
 	}
 	
+		// url 중복확인 - AJAX 통신 요청 기존과 다른 예제
+	// 그냥 가져오게 되면 toomanyresult 에러가 뜨기 때문에
+	// DAO에서 객체를 리스트로 담아주면 된다.
+		// http://localhost:8080/lesson06/quiz02/is_duplication
+//		@ResponseBody
+//		@PostMapping("/quiz02/is_duplication")
+//		public Map<String, Boolean> isDuplication(
+//				@RequestParam("url") String url
+//				) {
+//			Map<String, Boolean> checkExist = new HashMap<>();
+//			// 중복확인을 위한 select를 해봐야 함
+//			Website website = websiteBO.getWebsite(url);
+//			if (website != null) {
+//				checkExist.put("is_duplication", true);
+//			} else {
+//				checkExist.put("is_duplication", false);
+//			}
+	
+	
+//			checkExist.put("is_duplication", true);
+//			return checkExist;
+//		}
+		
+		
+	
 	// 행 삭제 api
 	@ResponseBody
-	@GetMapping("/quiz03/delete")
-	public String deleteWebsiteById(
-			@RequestParam("name") String name
+	@DeleteMapping("/quiz02/delete_website") // delete 방식으로하면 메소드를 delete 형식으로 보내야 한다.
+	public Map<String, Object> deleteWebsiteById(
+			@RequestParam("id") int id
 			//@RequestParam("url") String url
 			) {
-		System.out.println(name);
-		//websiteBO.deleteWebsiteById(name, url);
-		System.out.println("테스트");
-		return "삭제 완료";
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		// db delete
+		int row = websiteBO.deleteFavoriteById(id);
+		if (row > 0) {
+			result.put("code", 1); // 1번이면 성공
+			result.put("result", "성공");
+		} else {
+			result.put("code", 500); // 500이면 실패
+			result.put("result", "실패");
+			result.put("error_message", "삭제된 행이 없습니다.");
+		}
+		
+		//websiteBO.deleteWebsiteById(id);
+		return result;
 	}
-	
 
 }

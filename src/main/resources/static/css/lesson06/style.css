@@ -1,0 +1,13 @@
+@charset "UTF-8";
+#wrap {width:1200px; margin:auto;}
+header {height:100px;}
+#item {height:40px;}
+.font-attr {font-size:15px; color:#fff; font-weight:bold;}
+.contents {height:700px;}
+.top {height:65%;}
+.bottom {height:35%;}
+.booking1 {height:245px;}
+.booking2 {height:245px;}
+.booking3 {height:245px;}
+.font-color-white {color:#fff;}
+footer {height:100px;}

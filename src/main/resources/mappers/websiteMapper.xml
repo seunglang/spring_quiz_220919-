@@ -40,12 +40,26 @@
  			`url` = #{url}
  	</select>
  	
- 	<delete id="deleteWebsiteById" parameterType="String">
+ 	<!-- 중복 확인 구문 -->
+ 	<!-- <select id="selectWebsiteByUrl" parameterType="String" resultType="com.quiz.lesson06.model.Website">
+ 		SELECT
+ 			`id`
+ 			,`name`
+ 			, `url`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`website`
+ 		WHERE
+ 			`url` = #{url}
+ 	</select> -->
+ 	
+ 	<delete id="deleteWebsiteById" parameterType="int">
  		DELETE
  		FROM
  			`website`
  		WHERE
- 			`name' = #{name}
+ 			`id` = #{id}
  			<!--  AND
  			`url` = #{url}-->
  	</delete>
