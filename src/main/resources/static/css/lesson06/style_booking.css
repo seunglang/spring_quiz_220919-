@@ -5,11 +5,8 @@ header {height:100px;}
 .logo-hover > .logo-attr:hover {color:#CE6E09; text-decoration:none;}
 #item {height:40px;  background-color:#EF9A22;}
 .font-attr {font-size:15px; color:#fff; font-weight:bold;}
-.contents {height:700px;}
-.top {height:65%;}
-.bottom {height:35%;}
-.booking1 {height:245px; background-color:#A35706;}
-.booking2 {height:245px; background-color:#CE6E09;}
-.booking3 {height:245px; background-color:#A35706;}
+.contents {height:530px;}
+.top {height:70px;}
+.bottom {height:480px; width:500px; margin:auto;}
 .font-color-white {color:#fff;}
 footer {height:100px;}
