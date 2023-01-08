@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,10 +33,10 @@
 		</header>
 		<nav id="item">
 			<ul class="nav nav-fill w-100">
-				<li class="nav-item"><a href="" class="nav-link font-attr">펜션소개</a></li>
-				<li class="nav-item"><a href="" class="nav-link font-attr">객실보기</a></li>
-				<li class="nav-item"><a href="http://localhost:8080/lesson06/quiz03/booking" class="nav-link font-attr">예약하기</a></li>
-				<li class="nav-item"><a href="" class="nav-link font-attr">예약목록</a></li>
+				<li class="nav-item"><a href="#" class="nav-link font-attr">펜션소개</a></li>
+				<li class="nav-item"><a href="#" class="nav-link font-attr">객실보기</a></li>
+				<li class="nav-item"><a href="http://localhost:8080/lesson06/quiz03/add_booking_view" class="nav-link font-attr">예약하기</a></li>
+				<li class="nav-item"><a href="http://localhost:8080/lesson06/quiz03/booking_list" class="nav-link font-attr">예약목록</a></li>
 			</ul>
 		</nav>
 		<section class="contents">
@@ -56,15 +58,17 @@
 						<!-- 수정 요망 -->
 						<div class="groupingMem mr-4">
                             <div class="d-flex align-items-center justify-content-center">
-                                 <label class="mr-4">아이디 :</label>
-                                 <input type="text" id="memId" class="ml-2 form-control col-8 text-size">
+                                 <label class="mr-4">이름 :</label>
+                                 <input type="text" id="name" class="ml-3 form-control col-8 text-size">
                             </div>
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                 <div class="mr-3">비밀번호 :</div>
-                                 <input type="password" id="memPW" class="form-control col-8 text-size">
+                                 <div class="mr-3">전화번호 :</div>
+                                 <input type="text" id="phoneNumber" class="mr-2 form-control col-8 text-size">
                             </div>
                             <div class="d-flex justify-content-end mr-3">
-                                 <button type="button" id="btnSearchMem" class="form-control mt-3 col-4 btn-success">조회 하기</button>
+                           <%--  <c:forEach items="${test}" var="t" begin="0" end="1" step="1"> --%>
+                                 <button type="button" id="btnSearchMem" data-booking-name="${t.name}" class="form-control mt-3 col-4 btn-success">조회 하기</button>
+                          <%--   </c:forEach> --%>
                             </div>
                         </div>
 					</div>
@@ -104,6 +108,39 @@
 							changeEvThreSec = 0
 						}
 					}, 3000)
+					
+					
+					$('#btnSearchMem').on('click', function() {
+						let name = $('#name').val().trim();
+						let phoneNumber = $('#phoneNumber').val().trim();
+						//let test = $(this).data('booking-name');
+						//let test = $()
+						
+						if (name.length <= 0) {
+							alert("이름을 입력해주세요");
+							return;
+						}
+						if (!phoneNumber.startsWith('010')) {
+							alert("번호 형식을 제대로 입력해주세요 ex)010-1111-2222");
+						}
+						
+						$.ajax({
+							// request
+							type:"POST"
+							, url:"/lesson06/quiz03/is_duplication"
+							, data: {"name":name, "phoneNumber":phoneNumber}
+							
+							// response
+							, success:function(data) {
+								if (data.is_duplication) {
+									alert("이름 : " + data.Name + "\n날짜 : " + data.Date.substring(0,10) + "\n일수 : " + data.Day + "\n인원 : " + data.HeadCount + "\n상태 : " + data.State);
+								} else {
+									alert("예약된 내역이 없습니다.");
+								}
+							}
+						});
+						
+					});
 				});
 	</script>
 </body>

@@ -1,9 +1,11 @@
 package com.quiz.lesson06.bo;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.quiz.lesson06.dao.BookingDAO;
 import com.quiz.lesson06.model.Booking;
@@ -17,5 +19,25 @@ public class BookingBO {
 	// 예약목록 호출
 	public List<Booking> getBookingList() {
 		return bookingDAO.selectBookingList();
+	}
+	
+	// db 데이터 저장
+	public void addBooking(String name, String date, int day, int headcount, String phoneNumber, String state) {
+		bookingDAO.insertBooking(name, date, day, headcount, phoneNumber, state);
+	}
+	
+	// 예약 조회 확인 구문
+	public boolean existBookingByNameAndPhoneNumber(String name, String phoneNumber) {
+		return bookingDAO.existBookingByNameAndPhoneNumber(name, phoneNumber);
+	}
+	
+	// 예약 조회 확인 데이터 가져오기
+	public List<Booking> getExistBookingList(String name, String phoneNumber) {
+		return bookingDAO.selectExistBookingList(name, phoneNumber);
+	}
+	
+	// 행 삭제 구문
+	public int deleteBookingRowById(int id) {
+		return bookingDAO.deleteBookingRowById(id);
 	}
 }

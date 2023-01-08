@@ -1,0 +1,12 @@
+@charset "UTF-8";
+#wrap {width:1200px; margin:auto;}
+header {height:100px;}
+.logo-attr {color:#000;}
+.logo-hover > .logo-attr:hover {color:#CE6E09; text-decoration:none;}
+#item {height:40px;  background-color:#EF9A22;}
+.font-attr {font-size:15px; color:#fff; font-weight:bold;}
+.contents {height:530px;}
+.top {height:70px;}
+.bottom {min-height:480px; margin:auto;}
+.font-color-white {color:#fff;}
+footer {height:100px;}
