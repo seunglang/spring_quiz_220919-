@@ -132,11 +132,16 @@
 							
 							// response
 							, success:function(data) {
-								if (data.is_duplication) {
+								if (data.is_duplication) { // 조회된 내역이 있을 때
+									// 조건문 내부엔 data.is_duplication말고 data.code == 1로
+									// data.booking.id 방식으로 꺼내면 된다.
 									alert("이름 : " + data.Name + "\n날짜 : " + data.Date.substring(0,10) + "\n일수 : " + data.Day + "\n인원 : " + data.HeadCount + "\n상태 : " + data.State);
-								} else {
+								} else { // 조회된 내역 없을 때 또는 에러 상황
 									alert("예약된 내역이 없습니다.");
 								}
+							}
+							, error:function(e) {
+								alert("조회에 실패했습니다.");
 							}
 						});
 						

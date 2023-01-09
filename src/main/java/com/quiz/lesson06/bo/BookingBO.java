@@ -36,6 +36,11 @@ public class BookingBO {
 		return bookingDAO.selectExistBookingList(name, phoneNumber);
 	}
 	
+	// 쿼리로 가져오기 선생님 예제 - 위 메소드와 관련있음 (컨트롤러6 예약조회 함수 내부에 있음. 참고하기)
+	public Booking getLatestBookingNameAndPhoneNumber(String name, String phoneNumber) {
+		return bookingDAO.selectLatestBookingNameAndPhoneNumber(name, phoneNumber);
+	}
+	
 	// 행 삭제 구문
 	public int deleteBookingRowById(int id) {
 		return bookingDAO.deleteBookingRowById(id);

@@ -146,10 +146,12 @@
 					// response
 					, success:function(data) {
 						if (data.result == '성공') {
+							alert("예약 되었습니다.");
 							location.href = "/lesson06/quiz03/booking_list";
 						}
 					}
 					, error:function(e) {
+						alert("예약 실패하였습니다.");
 						alert("에러" + e);
 					}
 				});

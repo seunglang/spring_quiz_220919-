@@ -26,6 +26,11 @@ public interface BookingDAO {
 			@Param("name") String name,
 			@Param("phoneNumber") String phoneNumber);
 	
+	// 쿼리로 가져오기
+	public Booking selectLatestBookingNameAndPhoneNumber(
+			@Param("name") String name,
+			@Param("phoneNumber") String phoneNumber);
+	
 	// db 데이터 저장
 	public void insertBooking(
 			@Param("name") String name,

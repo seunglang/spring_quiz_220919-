@@ -89,6 +89,23 @@ public class Lesson06BookingController {
 			@RequestParam("name") String name,
 			@RequestParam("phoneNumber") String phoneNumber) {
 
+		
+		// db select 최신 정보 한 건 - 선생님 방식 (쿼리로 가져오기)
+		// jacson 라이브러리가 타임존 설정을 못해줘서 전날 날짜가 나오는것이다.
+		// 해결방법은 application.properties가서 코드를 추가해줘야 한다.
+		//Booking booking = bookingBO.getLatestBookingNameAndPhoneNumber(name, phoneNumber);
+		
+//		Map<String, Object> result = new HashMap<>();
+//		if (booking!= null) {
+//			result.put("booking", booking); // 셀렉트 한 객체 자체를 넣은거임
+//			result.put("code", 1);
+//		} else {
+//			result.put("code", 500);
+//		}
+//		return result;
+		
+		
+		
 		Map<String, Object> checkExist = new HashMap<>();
 		checkExist.put("is_duplication", bookingBO.existBookingByNameAndPhoneNumber(name, phoneNumber));
 		
@@ -112,6 +129,7 @@ public class Lesson06BookingController {
 		return checkExist;
 
 	}
+	
 
 	// 행 삭제 api
 	@ResponseBody

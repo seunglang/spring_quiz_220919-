@@ -79,6 +79,9 @@
 									<c:when test="${item.state eq '확정'}">
 										<span class="text-success">${item.state}</span>
 									</c:when>
+									<c:when test="${item.state eq '취소'}">
+										<span class="text-danger">${item.state}</span>
+									</c:when>
 								</c:choose>
 							</td>
 							<td><button type="button" class="btn btn-danger del-btn" data-booking-id="${item.id}">삭제</button></td>
@@ -119,7 +122,7 @@
 						}
 					}
 					, error:function (e) {
-						alert("에러" + e);
+						alert("삭제하는데 통신이 실패했습니다." + e); // 이게 뜬다면 요청부터 완전히 다시 봐야한다.
 					}	
 				});
 			});

@@ -75,6 +75,29 @@
 			`phoneNumber` = #{phoneNumber}
 	</select>
 
+	<!-- 쿼리로 가져오기 -->
+	<select id="selectLatestBookingNameAndPhoneNumber" parameterType="map" resultType="com.quiz.lesson06.model.Booking">
+		SELECT
+			`id`
+			,`name`
+			,`headcount`
+			,`day`
+			,`date`
+			,`phoneNumber`
+			,`state`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`booking`
+		WHERE
+			`name` = #{name}
+			AND
+			`phoneNumber` = #{phoneNumber}
+		ORDER BY
+			`id` DESC
+		LIMIT 1
+	</select>
+	
 	<delete id="deleteBookingRowById" parameterType="int">
 		DELETE
 		FROM
