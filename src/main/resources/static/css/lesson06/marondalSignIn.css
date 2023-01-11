@@ -1,0 +1,7 @@
+@charset "UTF-8";
+#wrap {width:900px; height:900px; margin:auto;}
+header {height:65px; background-color:#CCC5C5;}
+#signUp {width:540px; height:60px; margin:auto;}
+.contents {width:540px; height:250px; margin:auto; background-color:#EEE6E6;}
+.btnSignUp {padding: 6px 15px;}
+.btnSignIn {padding: 6px 23px}
